@@ -4,9 +4,19 @@
 
 I build product-focused web and mobile experiences from first idea to production. My work combines product thinking, interface engineering, backend and data design, security, and delivery—across real-time games, event platforms, mobile commerce, and content systems.
 
-**5,900+ GitHub contributions since 2024** · **7 original projects** · **Web, mobile, backend, and cloud**
+**5,900+ GitHub contributions since 2024** · **7 original projects** · **12 professional contribution repositories** · **Web, mobile, backend, and cloud**
 
 <sub>Contribution activity includes public and private product work recorded by GitHub.</sub>
+
+## Professional product contributions
+
+- **WinnerArc** — contributed to a shipped Expo and React Native productivity app for iOS and Android, spanning daily planning, 21-day habit programs, focus timers, progress tracking, reminders, authentication, subscriptions, and cross-platform delivery. [iOS](https://apps.apple.com/rs/app/winnerarc/id6746265207) · [Android](https://play.google.com/store/apps/details?id=com.winnerarc.application)
+- **[Takween AlDar](https://takweenaldar.ae/en)** — contribute across the current Next.js frontend, campaign landing experiences, and Strapi CMS for a bilingual Dubai real-estate platform, including property discovery, off-plan data integrations, localization, forms, maps, email, SEO, security controls, and observability.
+- **[Takween Advisory](https://takweenadvisory.ae/en)** — contribute across the Next.js and Strapi platform for a bilingual UAE business-advisory experience, covering content architecture, service journeys, conversion forms, email workflows, motion, anti-bot controls, SEO, and content operations.
+- **[Coach Board](https://www.coachboard.app)** — contributed to an interactive multi-sport tactical-board product with canvas tooling, configurable players and equipment, templates, session planning, sharing, and media export workflows.
+- **LugTranz** — contributed to a Python logistics backend with API services, database migrations, automated tests, and Dockerized development, staging, and production environments.
+- **WhatsApp & Voice AI scheduling platform** — contribute to an OpenAI and Twilio-powered appointment system with Next.js, Express, PostgreSQL, admin analytics, booking workflows, and dedicated verification tooling.
+- **Tepih Servis operations & chatbot platform** — contributed to AI-assisted pickup and delivery booking, route and fleet scheduling, pricing, maps, operations dashboards, and bot evaluation workflows.
 
 ## Selected open-source work
 
