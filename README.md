@@ -1,62 +1,142 @@
-# Relja Diklić
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg">
+    <img alt="Relja Diklić — full-stack developer and product manager who turns ideas into shipped software" src="./assets/hero-light.svg" width="100%">
+  </picture>
+</p>
 
-### Full-Stack Developer & Product Manager at [Underpond](https://www.underpond.io)
+<p align="center">
+  <strong>Full-Stack Developer × Product Manager at <a href="https://www.underpond.io">Underpond</a></strong>
+  <br>
+  <sub>Product thinking · web & mobile engineering · backend & data · AI integrations · secure delivery</sub>
+</p>
 
-I build product-focused web and mobile experiences from first idea to production. My work combines product thinking, interface engineering, backend and data design, security, and delivery—across real-time games, event platforms, mobile commerce, and content systems.
+<p align="center">
+  <a href="#selected-work">Selected work</a> ·
+  <a href="#technical-range">Technical range</a> ·
+  <a href="#the-build-trail">Build trail</a> ·
+  <a href="https://github.com/RexDotDev?tab=repositories">Repositories</a>
+</p>
 
-**5,900+ GitHub contributions since 2024** · **7 original projects** · **12 professional contribution repositories** · **Web, mobile, backend, and cloud**
+---
 
-<sub>Contribution activity includes public and private product work recorded by GitHub.</sub>
+## I build the whole product, not just the screen.
 
-## Professional product contributions
+I turn ambiguous ideas into production-ready digital products—from product scope and UX decisions to architecture, application code, data models, integrations, security controls, and deployment. My work spans shipped mobile apps, bilingual web platforms, real-time games, logistics systems, content platforms, and AI-assisted operations.
 
-- **WinnerArc** — contributed to a shipped Expo and React Native productivity app for iOS and Android, spanning daily planning, 21-day habit programs, focus timers, progress tracking, reminders, authentication, subscriptions, and cross-platform delivery. [iOS](https://apps.apple.com/rs/app/winnerarc/id6746265207) · [Android](https://play.google.com/store/apps/details?id=com.winnerarc.application)
-- **[Takween AlDar](https://takweenaldar.ae/en)** — contribute across the current Next.js frontend, campaign landing experiences, and Strapi CMS for a bilingual Dubai real-estate platform, including property discovery, off-plan data integrations, localization, forms, maps, email, SEO, security controls, and observability.
-- **[Takween Advisory](https://takweenadvisory.ae/en)** — contribute across the Next.js and Strapi platform for a bilingual UAE business-advisory experience, covering content architecture, service journeys, conversion forms, email workflows, motion, anti-bot controls, SEO, and content operations.
-- **[Coach Board](https://www.coachboard.app)** — contributed to an interactive multi-sport tactical-board product with canvas tooling, configurable players and equipment, templates, session planning, sharing, and media export workflows.
-- **LugTranz** — contributed to a Python logistics backend with API services, database migrations, automated tests, and Dockerized development, staging, and production environments.
-- **WhatsApp & Voice AI scheduling platform** — contribute to an OpenAI and Twilio-powered appointment system with Next.js, Express, PostgreSQL, admin analytics, booking workflows, and dedicated verification tooling.
-- **Tepih Servis operations & chatbot platform** — contributed to AI-assisted pickup and delivery booking, route and fleet scheduling, pricing, maps, operations dashboards, and bot evaluation workflows.
-
-## Selected open-source work
-
-| Project | What it demonstrates |
+| Product | Engineering |
 | --- | --- |
-| [Mafia](https://github.com/RexDotDev/mafia) | A real-time multiplayer party game with room lifecycle management, role assignment, player-scoped state, night actions, voting, narrator controls, chat, Supabase row-level security, and Vercel Functions. |
-| [Baller Imposter Game](https://github.com/RexDotDev/baller-imposter-game) | A local pass-and-play basketball game with NBA and EuroLeague modes, configurable roles, mixed player/team rounds, resilient media fallbacks, responsive interaction design, and a fully static deployment. [Live app](https://baller-imposter-game.vercel.app) |
+| Shape scope, user journeys, priorities, and tradeoffs. | Build frontend, mobile, backend, data, integrations, and delivery pipelines. |
+| Connect business intent to a product people can actually use. | Keep trust boundaries, quality gates, observability, and maintainability explicit. |
 
-Both projects are open source, documented for contributors, protected by CI and security guidance, and designed to run without exposing client-side secrets.
+## Selected work
 
-## Additional product experience
+Products I have contributed to, alongside open-source builds I own and maintain:
 
-- **Event media platform** — built a QR-led guest experience for photo and video uploads, a shared gallery, bilingual UI, admin-only controls, ZIP downloads, Cloudflare R2 presigned uploads, Supabase metadata, durable rate limits, upload validation, and cost-abuse safeguards.
-- **Digital event experience** — developed a responsive invitation with an animated media presentation, live countdown, RSVP workflow, guest management, maps integration, and production deployment.
-- **Mobile commerce** — created an Expo and React Native application with customer and administrator experiences, Firebase authentication, Firestore data, product and order management, cart state, checkout flows, and media capture/upload support.
-- **Headless content platform** — modeled a Strapi v5 real-estate CMS with properties, agents, developers, categories, reusable content components, media management, REST APIs, permissions, and localization-ready content.
-- **Learning product** — built an interactive knowledge-extraction quiz with practice and exam modes, multiple question types, unseen-question rotation, timed sessions, lifelines, scoring, answer review, dark mode, and local progress persistence.
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🏆 WinnerArc</h3>
+      <p>A shipped productivity app for iOS and Android: planning, 21-day programs, focus timers, progress, reminders, authentication, subscriptions, and cross-platform delivery.</p>
+      <p><code>Expo</code> <code>React Native</code> <code>Firebase</code> <code>Redux</code> <code>React Query</code></p>
+      <p><a href="https://apps.apple.com/rs/app/winnerarc/id6746265207">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.winnerarc.application">Google Play</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🏙️ Takween AlDar</h3>
+      <p>A bilingual Dubai real-estate platform spanning the current frontend, campaign experiences, and CMS: property discovery, data integrations, localization, maps, forms, SEO, security, and observability.</p>
+      <p><code>Next.js</code> <code>TypeScript</code> <code>Strapi</code> <code>Maps</code> <code>i18n</code></p>
+      <p><a href="https://takweenaldar.ae/en">Visit product</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>📈 Takween Advisory</h3>
+      <p>A bilingual UAE business-advisory platform with structured content, service journeys, conversion forms, email workflows, motion, anti-bot controls, SEO, and content operations.</p>
+      <p><code>Next.js</code> <code>TypeScript</code> <code>Strapi</code> <code>Motion</code> <code>SEO</code></p>
+      <p><a href="https://takweenadvisory.ae/en">Visit product</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🧠 Coach Board</h3>
+      <p>An interactive multi-sport tactical board with canvas tools, configurable players and equipment, templates, session planning, sharing, and media export workflows.</p>
+      <p><code>React</code> <code>TypeScript</code> <code>Canvas</code> <code>Product UX</code></p>
+      <p><a href="https://www.coachboard.app">Visit product</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🕵️ Mafia — open source</h3>
+      <p>A real-time multiplayer party game with rooms, role assignment, player-scoped state, night actions, voting, narrator controls, chat, row-level security, and serverless functions.</p>
+      <p><code>TypeScript</code> <code>React</code> <code>Supabase</code> <code>Vercel</code></p>
+      <p><a href="https://github.com/RexDotDev/mafia">Explore repository</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🏀 Baller Imposter — open source</h3>
+      <p>A local pass-and-play basketball game with NBA and EuroLeague modes, configurable roles, player/team rounds, resilient media fallbacks, responsive interaction design, and static deployment.</p>
+      <p><code>TypeScript</code> <code>React</code> <code>Vite</code> <code>Vitest</code></p>
+      <p><a href="https://github.com/RexDotDev/baller-imposter-game">Explore repository</a> · <a href="https://baller-imposter-game.vercel.app">Play live</a></p>
+    </td>
+  </tr>
+</table>
 
-## Technical strengths
+<details>
+  <summary><strong>More product work and original builds</strong></summary>
+  <br>
 
-| Area | Experience |
-| --- | --- |
-| **Frontend** | TypeScript, JavaScript, React, Next.js, Vite, Tailwind CSS, shadcn/ui, Radix UI, Framer Motion |
-| **Mobile** | React Native, Expo, mobile navigation, camera and image workflows |
-| **Backend & data** | Next.js API routes, Vercel Functions, Supabase, PostgreSQL, Firebase Auth, Firestore, Storage, Strapi v5 REST APIs |
-| **Cloud & delivery** | Vercel, Cloudflare R2 and S3-compatible storage, GitHub Actions, GitHub Pages |
-| **Quality & security** | Vitest, ESLint, static typing, CI, secret scanning, rate limiting, row-level security, server-only credentials, input and upload validation |
+- **LugTranz** — Python logistics backend with API services, database migrations, automated tests, and Dockerized development, staging, and production environments.
+- **WhatsApp & Voice AI scheduling** — OpenAI- and Twilio-powered appointment workflows with Next.js, Express, PostgreSQL, admin analytics, and dedicated verification tooling.
+- **Tepih Servis operations & chatbot** — AI-assisted pickup/delivery booking, pricing, maps, route and fleet scheduling, operations dashboards, and bot evaluation.
+- **Event media platform** — QR-led guest uploads and gallery with Cloudflare R2 presigned transfers, Supabase metadata, admin controls, ZIP exports, validation, rate limits, and cost-abuse safeguards.
+- **Digital event experience** — responsive invitation with animated media, a live countdown, RSVP and guest management, maps integration, and production deployment.
+- **Mobile commerce** — Expo/React Native customer and admin experiences with Firebase authentication, catalog and order management, cart, checkout, and media workflows.
+- **Headless real-estate CMS** — Strapi v5 content modeling for properties, agents, developers, categories, reusable components, permissions, media, REST APIs, and localization-ready content.
+- **Learning product** — interactive quiz with practice/exam modes, multiple question types, timed sessions, lifelines, scoring, review, dark mode, and local progress.
 
-## How I work
+</details>
 
-- **Product-minded:** connect user needs, product scope, interface decisions, and technical tradeoffs.
-- **End-to-end:** move comfortably from UX and application code to data models, APIs, infrastructure, and deployment.
-- **Security-conscious:** keep trust boundaries explicit and add practical controls for credentials, access, abuse, and cost.
-- **Contribution-ready:** favor clear documentation, reproducible setup, focused quality gates, and maintainable project structure.
+## Technical range
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/stack-light.svg">
+  <img alt="Technical stack: TypeScript, React, Next.js, React Native, Expo, Node.js, Python, PostgreSQL, Supabase, Firebase, Strapi, Vercel, Cloudflare, and GitHub Actions" src="./assets/stack-light.svg" width="100%">
+</picture>
+
+### How I ship
+
+- **Start with the user and the constraint.** Clarify the real problem before turning it into scope.
+- **Own the system end to end.** Connect interface decisions to APIs, data, infrastructure, and operations.
+- **Build security into the shape of the product.** Keep credentials server-side; validate inputs, uploads, access, abuse, and cost boundaries.
+- **Leave a contribution-ready codebase.** Prefer reproducible setup, focused documentation, static checks, tests, CI, and maintainable structure.
+
+## The build trail
+
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/profile-night-rainbow.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-gitblock.svg">
+    <img alt="Relja Diklić GitHub contribution calendar in 3D" src="./profile-3d-contrib/profile-gitblock.svg" width="100%">
+  </picture>
+</p>
+
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/generated/contribution-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/generated/contribution-snake-light.svg">
+    <img alt="Animated GitHub contribution snake" src="./assets/generated/contribution-snake-light.svg" width="100%">
+  </picture>
+</p>
+
+<sub>Activity includes public work and GitHub-recorded private contributions. Visuals are generated weekly inside this repository with GitHub's short-lived workflow token—no public analytics token or tracking pixel.</sub>
 
 ## Current focus
 
-I work at the intersection of full-stack development and product management at [Underpond](https://www.underpond.io), building digital products with clear user value and strong technical foundations. I am also continuing to turn selected personal projects into secure, contributor-friendly open source.
+I work at the intersection of full-stack development and product management at [Underpond](https://www.underpond.io), shipping useful web and mobile products with strong technical foundations. In parallel, I am turning selected personal builds into secure, well-documented open source.
 
-## Contact
-
-- [Underpond](https://www.underpond.io)
-- [GitHub](https://github.com/RexDotDev)
+<p align="center">
+  <strong>Build clearly. Ship responsibly. Keep improving.</strong>
+  <br><br>
+  <a href="https://www.underpond.io">Underpond</a> ·
+  <a href="https://github.com/RexDotDev">GitHub</a> ·
+  <a href="https://github.com/RexDotDev?tab=repositories">All repositories</a>
+</p>
