@@ -130,7 +130,27 @@ const getThreeDCells = (svg) => {
 };
 
 const addThreeDLabels = (svg, start, end, file) => {
-  const clean = removeCalendarLabels(svg);
+  let clean = removeCalendarLabels(svg);
+  const chartHeight = 880;
+  const rootPattern =
+    /^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg" width="1280" height="(?:850|880)" viewBox="0 0 1280 (?:850|880)">/;
+  const backgroundPattern =
+    /<rect x="0" y="0" width="1280" height="(?:850|880)" class="fill-bg"><\/rect>/;
+
+  if (!rootPattern.test(clean) || !backgroundPattern.test(clean)) {
+    throw new Error(`Could not expand the 3D chart canvas in ${file}.`);
+  }
+
+  clean = clean
+    .replace(
+      rootPattern,
+      `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="${chartHeight}" viewBox="0 0 1280 ${chartHeight}">`,
+    )
+    .replace(
+      backgroundPattern,
+      `<rect x="0" y="0" width="1280" height="${chartHeight}" class="fill-bg"></rect>`,
+    );
+
   const cells = getThreeDCells(clean);
   const expectedCellCount = daysBetween(start, end) + 1;
 
@@ -140,12 +160,20 @@ const addThreeDLabels = (svg, start, end, file) => {
     );
   }
 
+  const dayStep = {
+    x: cells[1].x - cells[0].x,
+    y: cells[1].y - cells[0].y,
+  };
   const monthLabels = getMonthMarkers(start, end)
     .map(({ date, label }) => {
       const weekIndex = Math.floor(daysBetween(start, date) / 7);
-      const cell = cells[weekIndex * 7];
-      const x = cell.x + 12;
-      const y = cell.y - 18;
+      const topCell = cells[weekIndex * 7];
+      const bottomEdge = {
+        x: topCell.x + dayStep.x * 6,
+        y: topCell.y + dayStep.y * 6,
+      };
+      const x = bottomEdge.x - 14;
+      const y = bottomEdge.y + 30;
 
       return `<text class="fill-weak stroke-bg" x="${formatNumber(x)}" y="${formatNumber(y)}" text-anchor="start" transform="rotate(30 ${formatNumber(x)} ${formatNumber(y)})">${label}</text>`;
     })
