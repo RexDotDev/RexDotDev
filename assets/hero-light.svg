@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
-  <title id="title">Relja Diklić — product-minded full-stack engineer</title>
-  <desc id="desc">I turn product ideas into shipped software across web, mobile, backend, data, AI, and cloud delivery.</desc>
+  <title id="title">Relja Diklić, co-founder of Underpond and product-minded full-stack engineer</title>
+  <desc id="desc">Co-founder of Underpond building shipped software across web, mobile, backend, data, AI, and cloud delivery.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fbff"/>
@@ -44,9 +44,9 @@
   <rect x="1" y="1" width="1278" height="418" rx="29" fill="none" stroke="#29345c" stroke-opacity="0.12"/>
 
   <g>
-    <rect x="54" y="46" width="340" height="34" rx="17" fill="#ffffff" fill-opacity="0.82" stroke="#3d4a70" stroke-opacity="0.14"/>
+    <rect x="54" y="46" width="380" height="34" rx="17" fill="#ffffff" fill-opacity="0.82" stroke="#3d4a70" stroke-opacity="0.14"/>
     <circle class="pulse" cx="73" cy="63" r="5" fill="#1bc47d"/>
-    <text x="88" y="68" fill="#49536e" font-size="13" font-weight="700" letter-spacing="1.25">RELJA DIKLIĆ / PRODUCT ENGINEER</text>
+    <text x="88" y="68" fill="#49536e" font-size="13" font-weight="700" letter-spacing="1.1">RELJA DIKLIĆ / UNDERPOND CO-FOUNDER</text>
   </g>
 
   <text x="54" y="142" fill="#11172a" font-size="52" font-weight="760" letter-spacing="-2.2">I turn product ideas</text>
@@ -83,7 +83,7 @@
       <tspan fill="#7357ff">const</tspan><tspan fill="#20283d"> relja = {</tspan>
     </text>
     <text x="844" y="169" fill="#20283d" font-size="15" class="mono">
-      <tspan fill="#c33e9c">role</tspan><tspan fill="#20283d">: </tspan><tspan fill="#087c68">"Full-Stack × Product"</tspan><tspan fill="#20283d">,</tspan>
+      <tspan fill="#c33e9c">role</tspan><tspan fill="#20283d">: </tspan><tspan fill="#087c68">"Co-Founder × Product Engineer"</tspan><tspan fill="#20283d">,</tspan>
     </text>
     <text x="844" y="201" fill="#20283d" font-size="15" class="mono">
       <tspan fill="#c33e9c">builds</tspan><tspan fill="#20283d">: [</tspan><tspan fill="#087c68">"web"</tspan><tspan fill="#20283d">, </tspan><tspan fill="#087c68">"mobile"</tspan><tspan fill="#20283d">, </tspan><tspan fill="#087c68">"AI"</tspan><tspan fill="#20283d">],</tspan>

@@ -2,12 +2,12 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg">
-    <img alt="Relja Diklić, full-stack developer and product manager" src="./assets/hero-light.svg" width="100%">
+    <img alt="Relja Diklić, co-founder of Underpond, full-stack developer and product manager" src="./assets/hero-light.svg" width="100%">
   </picture>
 </p>
 
 <p align="center">
-  <strong>Full-Stack Developer and Product Manager at <a href="https://www.underpond.io">Underpond</a></strong>
+  <strong>Co-Founder, Product Manager and Full-Stack Developer at <a href="https://www.underpond.io">Underpond</a></strong>
   <br>
   <sub>I take products from an early idea to a working release.</sub>
 </p>
@@ -23,7 +23,7 @@
 
 ## I like building the whole product
 
-Hi, I'm Relja. I work as a full-stack developer and product manager at [Underpond](https://www.underpond.io). I enjoy being close to the whole process: figuring out what is worth building, choosing a practical technical approach, writing the code and getting the product into people's hands.
+Hi, I'm Relja. I'm a co-founder of [Underpond](https://www.underpond.io), where I work across product management and full-stack development. I enjoy being close to the whole process: figuring out what is worth building, choosing a practical technical approach, writing the code and getting the product into people's hands.
 
 Most of my work is in TypeScript across web and mobile. I also work with backend services, databases, CMS platforms, cloud infrastructure and AI integrations.
 
@@ -132,7 +132,7 @@ Here are a few products I've worked on, along with two open source projects I ma
 
 ## Current focus
 
-At [Underpond](https://www.underpond.io), I split my time between product decisions and hands-on development. Right now I focus mostly on TypeScript, React, Next.js, React Native, backend services and AI integrations. I am also cleaning up a few personal projects and publishing them as documented, secure open source.
+As a co-founder of [Underpond](https://www.underpond.io), I split my time between product decisions and hands-on development. Right now I focus mostly on TypeScript, React, Next.js, React Native, backend services and AI integrations. I am also cleaning up a few personal projects and publishing them as documented, secure open source.
 
 <p align="center">
   <strong>Build useful things. Share what you learn.</strong>
