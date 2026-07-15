@@ -27,8 +27,6 @@ Hi, I'm Relja. I work as a full-stack developer and product manager at [Underpon
 
 Most of my work is in TypeScript across web and mobile. I also work with backend services, databases, CMS platforms, cloud infrastructure and AI integrations.
 
-I have also built an AI chatbot for a service business. It answers customer questions, calculates pricing, books pickup and delivery, and connects each request with route planning and the operations dashboard.
-
 | Product | Engineering |
 | --- | --- |
 | Turn rough ideas into clear scope, useful flows and sensible priorities. | Build the frontend, mobile app, backend, data layer, integrations and deployment. |
@@ -61,10 +59,9 @@ Here are a few products I've worked on, along with two open source projects I ma
       <p><a href="https://takweenadvisory.ae/en">Visit product</a></p>
     </td>
     <td width="50%" valign="top">
-      <h3>🧠 Coach Board</h3>
-      <p>A tactical board for coaches across several sports. It includes drawing tools, configurable players and equipment, templates, session planning, sharing and exports.</p>
-      <p><code>React</code> <code>TypeScript</code> <code>Canvas</code> <code>Product UX</code></p>
-      <p><a href="https://www.coachboard.app">Visit product</a></p>
+      <h3>💬 AI Service Chatbot</h3>
+      <p>An AI assistant for a service business that answers customer questions, calculates pricing, books pickup and delivery, and connects each request with route and fleet planning in the operations dashboard.</p>
+      <p><code>OpenAI</code> <code>TypeScript</code> <code>Maps</code> <code>Automation</code></p>
     </td>
   </tr>
   <tr>
