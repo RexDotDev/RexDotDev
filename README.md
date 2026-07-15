@@ -84,7 +84,9 @@ Here are a few products I've worked on, along with two open source projects I ma
   <summary><strong>More things I've built</strong></summary>
   <br>
 
-- **LugTranz:** a Python logistics backend with APIs, database migrations, automated tests and Docker environments for development, staging and production.
+- **Currency exchange and customer portal:** a legacy platform modernization covering exchange rates, currency conversion, buy and sell flows, checkout, secure accounts, KYC, orders, invoices, payments, shipping and back-office tools.
+- **Enterprise logistics platform:** a full-stack migration from legacy PHP to Next.js for quotes, shipments, tracking, proof of delivery, finance, insurance, claims, customer and admin dashboards, API access and AWS deployment.
+- **Multilingual shipping platform:** customer and admin experiences for quotes, shipment creation, payments, tracking, claims and identity verification across four languages, backed by Python APIs, database migrations, automated tests and Docker environments.
 - **WhatsApp and Voice AI scheduling:** appointment workflows built with OpenAI, Twilio, Next.js, Express and PostgreSQL, plus an admin dashboard and verification tools.
 - **Tepih Servis operations and chatbot:** pickup and delivery booking, pricing, maps, route planning, fleet scheduling, operations dashboards and bot evaluation.
 - **Event media platform:** QR-based guest uploads and galleries using Cloudflare R2 and Supabase, with admin controls, ZIP exports, validation, rate limits and cost safeguards.
