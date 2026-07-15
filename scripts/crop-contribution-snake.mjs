@@ -52,54 +52,6 @@ const getSnakeFrames = (svg, segment) => {
   return frames;
 };
 
-const getHeadVisits = (svg, stepX, stepY) => {
-  const frames = getSnakeFrames(svg, 0);
-
-  const visits = new Map();
-  const recordVisit = (x, y, time) => {
-    const key = `${formatNumber(x)},${formatNumber(y)}`;
-    const previous = visits.get(key);
-
-    if (previous === undefined || time < previous) {
-      visits.set(key, time);
-    }
-  };
-
-  for (let index = 0; index < frames.length; index += 1) {
-    const start = frames[index];
-    const end = frames[index + 1];
-    recordVisit(start.x, start.y, start.time);
-
-    if (!end || (start.x === end.x && start.y === end.y)) {
-      continue;
-    }
-
-    const deltaX = end.x - start.x;
-    const deltaY = end.y - start.y;
-
-    if (deltaX !== 0 && deltaY !== 0) {
-      throw new Error('The constrained snake path contains a diagonal move.');
-    }
-
-    const steps = Math.abs(deltaX / stepX) + Math.abs(deltaY / stepY);
-
-    if (!Number.isInteger(steps)) {
-      throw new Error('The constrained snake path is not aligned to the contribution grid.');
-    }
-
-    for (let step = 1; step <= steps; step += 1) {
-      const progress = step / steps;
-      recordVisit(
-        start.x + deltaX * progress,
-        start.y + deltaY * progress,
-        start.time + (end.time - start.time) * progress,
-      );
-    }
-  }
-
-  return visits;
-};
-
 const buildClosedSnakePath = (svg, stepX, stepY) => {
   const frames = getSnakeFrames(svg, 0);
   const path = [{ x: frames[0].x, y: frames[0].y }];
@@ -220,7 +172,7 @@ const smoothSnakeAnimations = (svg, stepX, stepY) => {
       `animation:none linear ${durationMs}ms infinite`,
     );
 
-  return { svg: smoothed, edgeCount, durationMs, keyframeCount };
+  return { svg: smoothed, path, edgeCount, durationMs, keyframeCount };
 };
 
 const removeHiddenProgressAnimation = (svg) => {
@@ -236,43 +188,126 @@ const removeHiddenProgressAnimation = (svg) => {
   return { svg: withoutCss, removedCount: progressElements.length };
 };
 
-const synchronizeCellAnimations = (svg, filledCells, visits, padding) => {
-  let synchronized = svg;
-  let changedCount = 0;
+const replaceCellAnimationsWithPath = (
+  svg,
+  path,
+  edgeCount,
+  durationMs,
+  cellWidth,
+  width,
+  height,
+) => {
+  if (svg.includes('<defs id="cell-consumption-animation">')) {
+    const filledCellCount = [
+      ...svg.matchAll(/<rect class="c l[1-4]"/g),
+    ].length;
 
-  for (const cell of filledCells) {
-    const className = cell[1];
-    const x = Number(cell[2]) - padding;
-    const y = Number(cell[3]) - padding;
-    const visitTime = visits.get(`${formatNumber(x)},${formatNumber(y)}`);
-
-    if (visitTime === undefined) {
-      throw new Error(`The snake never reaches contribution cell ${className}.`);
+    if (filledCellCount === 0) {
+      throw new Error('The optimized contribution overlay is empty.');
     }
-
-    const animationPattern = new RegExp(
-      `@keyframes ${className}\\{[\\d.]+%\\{fill:var\\((--c[1-4])\\)\\}[\\d.]+%,100%\\{fill:var\\(--ce\\)\\}\\}`,
-    );
-    const animation = synchronized.match(animationPattern);
-
-    if (!animation) {
-      throw new Error(`Could not find the animation for contribution cell ${className}.`);
-    }
-
-    const beforeVisit = Math.max(0, Math.min(99.98, visitTime - 0.01));
-    const afterVisit = Math.max(
-      beforeVisit + 0.01,
-      Math.min(99.99, visitTime + 0.01),
-    );
-    const replacement = `@keyframes ${className}{${formatNumber(beforeVisit)}%{fill:var(${animation[1]})}${formatNumber(afterVisit)}%,100%{fill:var(--ce)}}`;
-
-    if (animation[0] !== replacement) {
-      synchronized = synchronized.replace(animationPattern, replacement);
-      changedCount += 1;
-    }
+    return { svg, filledCellCount, removedAnimationCount: 0 };
   }
 
-  return { svg: synchronized, changedCount };
+  const colorByClass = new Map();
+  const cellAnimationPattern =
+    /@keyframes (c[0-9a-z]+)\{.*?\}\.c\.\1\{fill:var\(--c([1-4])\);animation-name:\1\}/gs;
+  let removedAnimationCount = 0;
+  let optimized = svg.replace(
+    cellAnimationPattern,
+    (_animation, className, level) => {
+      colorByClass.set(className, level);
+      removedAnimationCount += 1;
+      return '';
+    },
+  );
+
+  optimized = optimized.replace(
+    /<rect class="c (c[0-9a-z]+)"/g,
+    (elementStart, className) => {
+      const level = colorByClass.get(className);
+
+      if (!level) {
+        throw new Error(`Could not determine the color for contribution cell ${className}.`);
+      }
+      return `<rect class="c l${level}"`;
+    },
+  );
+  optimized = optimized.replace(/;animation:none \d+ms linear infinite/, '');
+  optimized = optimized
+    .replace(
+      /\.c\.l1\{fill:var\(--c1\)\}\.c\.l2\{fill:var\(--c2\)\}\.c\.l3\{fill:var\(--c3\)\}\.c\.l4\{fill:var\(--c4\)\}@keyframes eat\{.*?\}\.e\{.*?\}/s,
+      '',
+    )
+    .replace(
+      /<defs id="eaten-animation">.*?<\/defs><path class="e"[^>]*\/>/s,
+      '',
+    );
+
+  const filledCells = [
+    ...optimized.matchAll(
+      /<rect class="c l([1-4])" x="(-?[\d.]+)" y="(-?[\d.]+)"[^>]*\/>/g,
+    ),
+  ];
+
+  if (filledCells.length === 0) {
+    throw new Error('Could not find colored contribution cells.');
+  }
+  if (removedAnimationCount > 0 && removedAnimationCount !== filledCells.length) {
+    throw new Error('Not all contribution cell animations were converted.');
+  }
+
+  const coloredCells = filledCells.map((cell) => cell[0]).join('');
+  optimized = optimized.replace(
+    /<rect class="c l[1-4]"/g,
+    '<rect class="c"',
+  );
+
+  const turns = [path[0]];
+
+  for (let index = 1; index < path.length - 1; index += 1) {
+    const previous = path[index - 1];
+    const current = path[index];
+    const next = path[index + 1];
+
+    if (
+      current.x - previous.x !== next.x - current.x ||
+      current.y - previous.y !== next.y - current.y
+    ) {
+      turns.push(current);
+    }
+  }
+  turns.push(path.at(-1));
+
+  const pathLength = path.slice(1).reduce((length, position, index) => {
+    const previous = path[index];
+    return length + Math.hypot(position.x - previous.x, position.y - previous.y);
+  }, 0);
+  const centerOffset = 2 + cellWidth / 2;
+  const pathData = turns
+    .map(
+      ({ x, y }, index) =>
+        `${index === 0 ? 'M' : 'L'}${formatNumber(x + centerOffset)} ${formatNumber(y + centerOffset)}`,
+    )
+    .join(' ');
+  const levelStyles = [1, 2, 3, 4]
+    .map((level) => `.c.l${level}{fill:var(--c${level})}`)
+    .join('');
+  const eaterStyle = `${levelStyles}@keyframes eat{0%{stroke-dashoffset:${formatNumber(pathLength)}}100%{stroke-dashoffset:0}}.e{fill:none;stroke:#000;stroke-width:${formatNumber(cellWidth + 2)}px;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:${formatNumber(pathLength)} ${formatNumber(pathLength)};stroke-dashoffset:${formatNumber(pathLength)};animation:eat ${durationMs}ms linear infinite}`;
+  const eaterElements = `<defs id="cell-consumption-animation"><mask id="remaining-cells" maskUnits="userSpaceOnUse" x="0" y="0" width="${formatNumber(width)}" height="${formatNumber(height)}" style="mask-type:luminance"><rect x="0" y="0" width="${formatNumber(width)}" height="${formatNumber(height)}" fill="#fff"/><path class="e" d="${pathData}"/></mask></defs><g id="colored-cells" mask="url(#remaining-cells)">${coloredCells}</g>`;
+
+  if (!/\.s\{/.test(optimized) || !/<rect class="s s0"/.test(optimized)) {
+    throw new Error('Could not insert the optimized cell-consumption path.');
+  }
+
+  optimized = optimized
+    .replace(/(?=\.s\{)/, eaterStyle)
+    .replace(/(?=<rect class="s s0")/, eaterElements);
+
+  return {
+    svg: optimized,
+    filledCellCount: filledCells.length,
+    removedAnimationCount,
+  };
 };
 
 for (const file of files) {
@@ -339,23 +374,20 @@ for (const file of files) {
 
   const progress = removeHiddenProgressAnimation(constrained);
   const smoothed = smoothSnakeAnimations(progress.svg, stepX, stepY);
-  const filledCells = [
-    ...smoothed.svg.matchAll(
-      /<rect class="c (c[0-9a-z]+)" x="(-?[\d.]+)" y="(-?[\d.]+)"/g,
-    ),
-  ];
-  const visits = getHeadVisits(smoothed.svg, stepX, stepY);
-  const synchronized = synchronizeCellAnimations(
+  const optimized = replaceCellAnimationsWithPath(
     smoothed.svg,
-    filledCells,
-    visits,
-    padding,
+    smoothed.path,
+    smoothed.edgeCount,
+    smoothed.durationMs,
+    cellWidth,
+    width,
+    height,
   );
 
-  if (synchronized.svg !== svg) {
-    await writeFile(file, synchronized.svg);
+  if (optimized.svg !== svg) {
+    await writeFile(file, optimized.svg);
   }
   console.log(
-    `Constrained ${file} to ${formatNumber(width)}×${formatNumber(height)}; updated ${constrainedTransformCount} positions, removed ${progress.removedCount} hidden progress elements, smoothed ${smoothed.edgeCount} steps into ${smoothed.keyframeCount} keyframes over ${smoothed.durationMs}ms, and synchronized ${synchronized.changedCount} contribution cells.`,
+    `Constrained ${file} to ${formatNumber(width)}×${formatNumber(height)}; updated ${constrainedTransformCount} positions, removed ${progress.removedCount} hidden progress elements and ${optimized.removedAnimationCount} cell animations, smoothed ${smoothed.edgeCount} steps into ${smoothed.keyframeCount} keyframes over ${smoothed.durationMs}ms, and routed ${optimized.filledCellCount} colored cells through one consumption path.`,
   );
 }
