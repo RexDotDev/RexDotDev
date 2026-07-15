@@ -47,6 +47,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
 
+      - name: Add calendar labels
+        shell: bash
+        run: |
+          node scripts/add-contribution-calendar-labels.mjs \
+            --reference profile-3d-contrib/profile-gitblock.svg \
+            --three-d profile-3d-contrib/profile-gitblock.svg \
+            --three-d profile-3d-contrib/profile-night-rainbow.svg \
+            --snake assets/generated/contribution-snake-light.svg \
+            --snake assets/generated/contribution-snake-dark.svg
+
       - name: Package generated visuals
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
