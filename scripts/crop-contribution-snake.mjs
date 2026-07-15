@@ -9,6 +9,9 @@ if (files.length === 0) {
 const formatNumber = (value) =>
   Number.isInteger(value) ? String(value) : String(Number(value.toFixed(2)));
 
+const formatPercentage = (value) =>
+  Number.isInteger(value) ? String(value) : String(Number(value.toFixed(4)));
+
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 const getGridStep = (values) => {
@@ -17,11 +20,13 @@ const getGridStep = (values) => {
   return Math.min(...steps.filter((step) => step > 0));
 };
 
-const getHeadVisits = (svg, stepX, stepY) => {
-  const animation = svg.match(/@keyframes s0\{(.*?)\}\.s\.s0\{/s)?.[1];
+const getSnakeFrames = (svg, segment) => {
+  const animation = svg.match(
+    new RegExp(`@keyframes s${segment}\\{(.*?)\\}\\.s\\.s${segment}\\{`, 's'),
+  )?.[1];
 
   if (!animation) {
-    throw new Error('Could not find the snake head animation.');
+    throw new Error(`Could not find snake segment s${segment}.`);
   }
 
   const framesByTime = new Map();
@@ -41,8 +46,14 @@ const getHeadVisits = (svg, stepX, stepY) => {
   const frames = [...framesByTime.values()].sort((a, b) => a.time - b.time);
 
   if (frames.length < 2 || frames.some(({ time }) => !Number.isFinite(time))) {
-    throw new Error('Could not parse the snake head animation keyframes.');
+    throw new Error(`Could not parse snake segment s${segment}.`);
   }
+
+  return frames;
+};
+
+const getHeadVisits = (svg, stepX, stepY) => {
+  const frames = getSnakeFrames(svg, 0);
 
   const visits = new Map();
   const recordVisit = (x, y, time) => {
@@ -87,6 +98,142 @@ const getHeadVisits = (svg, stepX, stepY) => {
   }
 
   return visits;
+};
+
+const buildClosedSnakePath = (svg, stepX, stepY) => {
+  const frames = getSnakeFrames(svg, 0);
+  const path = [{ x: frames[0].x, y: frames[0].y }];
+
+  for (let index = 0; index < frames.length - 1; index += 1) {
+    const start = frames[index];
+    const end = frames[index + 1];
+    const deltaX = end.x - start.x;
+    const deltaY = end.y - start.y;
+
+    if (deltaX === 0 && deltaY === 0) {
+      continue;
+    }
+
+    if (deltaX !== 0 && deltaY !== 0) {
+      throw new Error('The constrained snake path contains a diagonal move.');
+    }
+
+    const steps = Math.abs(deltaX / stepX) + Math.abs(deltaY / stepY);
+
+    if (!Number.isInteger(steps)) {
+      throw new Error('The constrained snake path is not aligned to the contribution grid.');
+    }
+
+    for (let step = 1; step <= steps; step += 1) {
+      const progress = step / steps;
+      path.push({
+        x: start.x + deltaX * progress,
+        y: start.y + deltaY * progress,
+      });
+    }
+  }
+
+  const first = path[0];
+  const last = path.at(-1);
+
+  if (first.x !== last.x || first.y !== last.y) {
+    throw new Error('The constrained snake path is not a closed loop.');
+  }
+
+  return path;
+};
+
+const smoothSnakeAnimations = (svg, stepX, stepY) => {
+  const path = buildClosedSnakePath(svg, stepX, stepY);
+  const edgeCount = path.length - 1;
+  const durationMs = edgeCount * 100;
+  let smoothed = svg;
+  let keyframeCount = 0;
+
+  for (let segment = 0; segment < 4; segment += 1) {
+    const groups = new Map();
+    const getPosition = (step) =>
+      path[(step - segment + edgeCount) % edgeCount];
+    const keyframeSteps = [0];
+
+    for (let step = 1; step < edgeCount; step += 1) {
+      const previous = getPosition(step - 1);
+      const current = getPosition(step);
+      const next = getPosition(step + 1);
+      const incomingX = current.x - previous.x;
+      const incomingY = current.y - previous.y;
+      const outgoingX = next.x - current.x;
+      const outgoingY = next.y - current.y;
+
+      if (incomingX !== outgoingX || incomingY !== outgoingY) {
+        keyframeSteps.push(step);
+      }
+    }
+    keyframeSteps.push(edgeCount);
+    keyframeCount += keyframeSteps.length;
+
+    for (const step of keyframeSteps) {
+      const position = getPosition(step);
+      const key = `${formatNumber(position.x)},${formatNumber(position.y)}`;
+      const time = step === edgeCount ? 100 : (step / edgeCount) * 100;
+
+      if (!groups.has(key)) {
+        groups.set(key, { ...position, times: [] });
+      }
+      groups.get(key).times.push(formatPercentage(time));
+    }
+
+    const keyframes = [...groups.values()]
+      .map(
+        ({ x, y, times }) =>
+          `${times.map((time) => `${time}%`).join(',')}{transform:translate(${formatNumber(x)}px,${formatNumber(y)}px)}`,
+      )
+      .join('');
+    const animationPattern = new RegExp(
+      `@keyframes s${segment}\\{.*?\\}(?=\\.s\\.s${segment}\\{)`,
+      's',
+    );
+    const initial = path[(edgeCount - segment) % edgeCount];
+    const initialPattern = new RegExp(
+      `\\.s\\.s${segment}\\{transform:translate\\([^)]*\\);animation-name:s${segment}\\}`,
+    );
+
+    if (!animationPattern.test(smoothed) || !initialPattern.test(smoothed)) {
+      throw new Error(`Could not rebuild snake segment s${segment}.`);
+    }
+
+    smoothed = smoothed
+      .replace(animationPattern, `@keyframes s${segment}{${keyframes}}`)
+      .replace(
+        initialPattern,
+        `.s.s${segment}{transform:translate(${formatNumber(initial.x)}px,${formatNumber(initial.y)}px);animation-name:s${segment}}`,
+      );
+  }
+
+  smoothed = smoothed
+    .replace(
+      /animation:none \d+ms linear infinite/g,
+      `animation:none ${durationMs}ms linear infinite`,
+    )
+    .replace(
+      /animation:none linear \d+ms infinite/g,
+      `animation:none linear ${durationMs}ms infinite`,
+    );
+
+  return { svg: smoothed, edgeCount, durationMs, keyframeCount };
+};
+
+const removeHiddenProgressAnimation = (svg) => {
+  const progressElements = [
+    ...svg.matchAll(/<rect class="u(?: [^"]*)?"[^>]*\/>/g),
+  ];
+  const withoutElements = svg.replace(
+    /<rect class="u(?: [^"]*)?"[^>]*\/>/g,
+    '',
+  );
+  const withoutCss = withoutElements.replace(/\.u\{.*?(?=\.s\{)/s, '');
+
+  return { svg: withoutCss, removedCount: progressElements.length };
 };
 
 const synchronizeCellAnimations = (svg, filledCells, visits, padding) => {
@@ -190,14 +337,16 @@ for (const file of files) {
     throw new Error(`Could not find the snake animation transforms in ${file}.`);
   }
 
+  const progress = removeHiddenProgressAnimation(constrained);
+  const smoothed = smoothSnakeAnimations(progress.svg, stepX, stepY);
   const filledCells = [
-    ...constrained.matchAll(
+    ...smoothed.svg.matchAll(
       /<rect class="c (c[0-9a-z]+)" x="(-?[\d.]+)" y="(-?[\d.]+)"/g,
     ),
   ];
-  const visits = getHeadVisits(constrained, stepX, stepY);
+  const visits = getHeadVisits(smoothed.svg, stepX, stepY);
   const synchronized = synchronizeCellAnimations(
-    constrained,
+    smoothed.svg,
     filledCells,
     visits,
     padding,
@@ -207,6 +356,6 @@ for (const file of files) {
     await writeFile(file, synchronized.svg);
   }
   console.log(
-    `Constrained ${file} to ${formatNumber(width)}×${formatNumber(height)}; updated ${constrainedTransformCount} snake positions and synchronized ${synchronized.changedCount} contribution cells.`,
+    `Constrained ${file} to ${formatNumber(width)}×${formatNumber(height)}; updated ${constrainedTransformCount} positions, removed ${progress.removedCount} hidden progress elements, smoothed ${smoothed.edgeCount} steps into ${smoothed.keyframeCount} keyframes over ${smoothed.durationMs}ms, and synchronized ${synchronized.changedCount} contribution cells.`,
   );
 }
