@@ -45,18 +45,16 @@ Here are a few products I've worked on, along with two open source projects I ma
       <p><a href="https://apps.apple.com/rs/app/winnerarc/id6746265207">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.winnerarc.application">Google Play</a></p>
     </td>
     <td width="50%" valign="top">
-      <h3>🏙️ Takween AlDar</h3>
+      <h3>🏙️ Bilingual Real Estate Platform</h3>
       <p>A bilingual real estate platform for Dubai. My work includes the frontend, CMS, property search, integrations, localization, maps, forms, SEO and monitoring.</p>
       <p><code>Next.js</code> <code>TypeScript</code> <code>Strapi</code> <code>Maps</code> <code>i18n</code></p>
-      <p><a href="https://takweenaldar.ae/en">Visit product</a></p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>📈 Takween Advisory</h3>
+      <h3>📈 Business Advisory Platform</h3>
       <p>A bilingual business advisory website for the UAE, built around clear service pages, useful content, lead forms and reliable content operations.</p>
       <p><code>Next.js</code> <code>TypeScript</code> <code>Strapi</code> <code>Motion</code> <code>SEO</code></p>
-      <p><a href="https://takweenadvisory.ae/en">Visit product</a></p>
     </td>
     <td width="50%" valign="top">
       <h3>💬 AI Service Chatbot</h3>
