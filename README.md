@@ -27,6 +27,8 @@ Hi, I'm Relja. I work as a full-stack developer and product manager at [Underpon
 
 Most of my work is in TypeScript across web and mobile. I also work with backend services, databases, CMS platforms, cloud infrastructure and AI integrations.
 
+I have also built an AI chatbot for a service business. It answers customer questions, calculates pricing, books pickup and delivery, and connects each request with route planning and the operations dashboard.
+
 | Product | Engineering |
 | --- | --- |
 | Turn rough ideas into clear scope, useful flows and sensible priorities. | Build the frontend, mobile app, backend, data layer, integrations and deployment. |
