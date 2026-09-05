@@ -19,7 +19,7 @@
 <p><a href="https://apps.apple.com/rs/app/winnerarc/id6746265207">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.winnerarc.application">Google Play</a></p>
 </td>
 <td width="50%" valign="top">
-<img src="./assets/underpond-v2/systems.svg" alt="Connected systems: experience, intelligence, and operations. Web platforms, AI, and data." width="100%">
+<img src="./assets/underpond-v2/systems-scene.svg" alt="Connected systems: experience, intelligence, and operations. Web platforms, AI, and data." width="100%">
 <details>
 <summary><strong>Explore the systems</strong></summary>
 <br>
