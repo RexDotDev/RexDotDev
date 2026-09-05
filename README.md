@@ -1,143 +1,222 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg">
-    <img alt="Relja Diklić, co-founder of Underpond, full-stack developer and product manager" src="./assets/hero-light.svg" width="100%">
-  </picture>
+  <a href="#choose-your-way-in">
+    <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="./assets/underpond/hero-still.png">
+    <img src="./assets/underpond/hero.gif" alt="Relja Diklić. Product Manager and Co-Founder at Underpond. From the first spark to the real thing. Enter the profile below." width="100%">
+    </picture>
+  </a>
 </p>
+
+<h1 align="center">Relja Diklić</h1>
+<p align="center">
+  <strong>Product Manager &amp; Co-Founder at <a href="https://www.underpond.io">Underpond</a></strong><br>
+  I connect product direction with the people and engineering that make it real.<br>
+  Based in Novi Sad. Working across web, mobile, and connected systems.
+</p>
+
+<h2 align="center" id="choose-your-way-in">Choose your way in.</h2>
 
 <p align="center">
-  <strong>Co-Founder, Product Manager and Full-Stack Developer at <a href="https://www.underpond.io">Underpond</a></strong>
-  <br>
-  <sub>I take products from an early idea to a working release.</sub>
+  <a href="#inside-the-build"><strong>01 / The product mind</strong></a><br><br>
+  <a href="#out-in-the-world"><strong>02 / The work</strong></a><br><br>
+  <a href="#your-turn"><strong>03 / The play room</strong></a>
 </p>
 
-<p align="center">
-  <a href="#selected-work">Selected work</a> ·
-  <a href="#technical-range">Technical range</a> ·
-  <a href="#the-build-trail">Build trail</a> ·
-  <a href="https://github.com/RexDotDev?tab=repositories">Repositories</a>
-</p>
+<br>
 
----
+## Inside the build.
 
-## I like building the whole product
+A product starts long before the first line of code. My role is to bring clarity to the idea, make the tradeoffs, and stay close enough to the build to carry those decisions through.
 
-Hi, I'm Relja. I'm a co-founder of [Underpond](https://www.underpond.io), where I work across product management and full-stack development. I enjoy being close to the whole process: figuring out what is worth building, choosing a practical technical approach, writing the code and getting the product into people's hands.
-
-Most of my work is in TypeScript across web and mobile. I also work with backend services, databases, CMS platforms, cloud infrastructure and AI integrations.
-
-| Product | Engineering |
-| --- | --- |
-| Turn rough ideas into clear scope, useful flows and sensible priorities. | Build the frontend, mobile app, backend, data layer, integrations and deployment. |
-| Stay close to feedback and make tradeoffs based on what matters. | Keep the code secure, testable and easy for other people to work with. |
-
-## Selected work
-
-Here are a few products I've worked on, along with two open source projects I maintain.
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🏆 WinnerArc</h3>
-      <p>A productivity app for iOS and Android with planning, 21-day programs, focus timers, progress tracking, reminders and subscriptions.</p>
-      <p><code>Expo</code> <code>React Native</code> <code>Firebase</code> <code>Redux</code> <code>React Query</code></p>
-      <p><a href="https://apps.apple.com/rs/app/winnerarc/id6746265207">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.winnerarc.application">Google Play</a></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🏙️ Bilingual Real Estate Platform</h3>
-      <p>A bilingual real estate platform for Dubai. My work includes the frontend, CMS, property search, integrations, localization, maps, forms, SEO and monitoring.</p>
-      <p><code>Next.js</code> <code>TypeScript</code> <code>Strapi</code> <code>Maps</code> <code>i18n</code></p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>📈 Business Advisory Platform</h3>
-      <p>A bilingual business advisory website for the UAE, built around clear service pages, useful content, lead forms and reliable content operations.</p>
-      <p><code>Next.js</code> <code>TypeScript</code> <code>Strapi</code> <code>Motion</code> <code>SEO</code></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>💬 AI Service Chatbot</h3>
-      <p>An AI assistant for a service business that answers customer questions, calculates pricing, books pickup and delivery, and connects each request with route and fleet planning in the operations dashboard.</p>
-      <p><code>OpenAI</code> <code>TypeScript</code> <code>Maps</code> <code>Automation</code></p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🕵️ Mafia (open source)</h3>
-      <p>A real-time multiplayer Mafia game with private rooms, roles, night actions, voting, narrator controls and chat. Supabase handles the backend, security rules and realtime state.</p>
-      <p><code>TypeScript</code> <code>React</code> <code>Supabase</code> <code>Vercel</code></p>
-      <p><a href="https://github.com/RexDotDev/mafia">Explore repository</a></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🏀 Baller Imposter (open source)</h3>
-      <p>A local pass-and-play basketball party game with NBA and EuroLeague modes. It supports custom roles, player and team rounds, responsive play and resilient image fallbacks.</p>
-      <p><code>TypeScript</code> <code>React</code> <code>Vite</code> <code>Vitest</code></p>
-      <p><a href="https://github.com/RexDotDev/baller-imposter-game">Explore repository</a> · <a href="https://baller-imposter-game.vercel.app">Play live</a></p>
-    </td>
-  </tr>
-</table>
+<img src="./assets/underpond/process.svg" alt="My process: find the signal, make the call, connect the build, make it real." width="100%">
 
 <details>
-  <summary><strong>More things I've built</strong></summary>
-  <br>
+<summary><strong>01 / Find the signal.</strong> What is actually worth building?</summary>
+<br>
 
-- **Currency exchange and customer portal:** a legacy platform modernization covering exchange rates, currency conversion, buy and sell flows, checkout, secure accounts, KYC, orders, invoices, payments, shipping and back-office tools.
-- **Enterprise logistics platform:** a full-stack migration from legacy PHP to Next.js for quotes, shipments, tracking, proof of delivery, finance, insurance, claims, customer and admin dashboards, API access and AWS deployment.
-- **Multilingual shipping platform:** customer and admin experiences for quotes, shipment creation, payments, tracking, claims and identity verification across four languages, backed by Python APIs, database migrations, automated tests and Docker environments.
-- **WhatsApp and Voice AI scheduling:** appointment workflows built with OpenAI, Twilio, Next.js, Express and PostgreSQL, plus an admin dashboard and verification tools.
-- **Tepih Servis operations and chatbot:** pickup and delivery booking, pricing, maps, route planning, fleet scheduling, operations dashboards and bot evaluation.
-- **Event media platform:** QR-based guest uploads and galleries using Cloudflare R2 and Supabase, with admin controls, ZIP exports, validation, rate limits and cost safeguards.
-- **Digital event experience:** a responsive invitation with animated media, a live countdown, RSVP management, maps and production deployment.
-- **Mobile commerce:** Expo and React Native customer and admin apps with Firebase authentication, catalog and order management, cart, checkout and media workflows.
-- **Headless real estate CMS:** Strapi content models for properties, agents, developers, categories, reusable components, media, permissions, APIs and localization.
-- **Learning product:** an interactive quiz with practice and exam modes, several question types, timed sessions, lifelines, scoring, review and local progress.
+I start with the problem, the people facing it, and the business behind it. The goal is a shared direction: what needs to improve, why it matters, and how we will recognize progress.
+
+**Discovery → Product direction → Success criteria**
 
 </details>
 
-## Technical range
+<details>
+<summary><strong>02 / Make the call.</strong> What earns a place in the release?</summary>
+<br>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/stack-light.svg">
-  <img alt="Technical stack: TypeScript, React, Next.js, React Native, Expo, Node.js, Python, PostgreSQL, Supabase, Firebase, Strapi, Vercel, Cloudflare, and GitHub Actions" src="./assets/stack-light.svg" width="100%">
-</picture>
+I turn ambiguity into useful journeys, priorities, and a scope the team can deliver. Every addition has a cost. Sometimes the most valuable decision is the feature we leave out.
 
-### How I work
+**User journeys → Priorities → Release scope**
 
-- **Understand the real problem first.** I would rather cut the wrong feature early than polish it later.
-- **Follow decisions through the whole stack.** Interface choices affect APIs, data and operations, so I treat them as one system.
-- **Treat security as part of the product.** Secrets stay server-side, inputs and uploads are validated, and access and cost limits are explicit.
-- **Make the repository easy to join.** Setup should be repeatable, documentation should be useful and checks should run automatically.
+</details>
 
-## The build trail
+<details>
+<summary><strong>03 / Connect the build.</strong> How do the pieces work together?</summary>
+<br>
 
-<p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/profile-night-rainbow.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-gitblock.svg">
-    <img alt="Relja Diklić GitHub contribution calendar in 3D" src="./profile-3d-contrib/profile-gitblock.svg" width="100%">
-  </picture>
-</p>
+I work hands-on across interfaces, mobile apps, services, data, and integrations. A decision in one layer affects the others, so I keep product intent connected to implementation.
 
-<p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/generated/contribution-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/generated/contribution-snake-light.svg">
-    <img alt="Animated GitHub contribution snake" src="./assets/generated/contribution-snake-light.svg" width="100%">
-  </picture>
-</p>
+**Web & mobile → Backend & data → AI & integrations**
 
-<sub>Activity includes public work and GitHub-recorded private contributions. These visuals are generated daily in this repository using GitHub's short-lived workflow token. There is no public analytics token or tracking pixel.</sub>
+</details>
 
-## Current focus
+<details>
+<summary><strong>04 / Make it real.</strong> What happens when people use it?</summary>
+<br>
 
-As a co-founder of [Underpond](https://www.underpond.io), I split my time between product decisions and hands-on development. Right now I focus mostly on TypeScript, React, Next.js, React Native, backend services and AI integrations. I am also cleaning up a few personal projects and publishing them as documented, secure open source.
+I care about the important journeys working reliably, the team knowing how to maintain the product, and feedback having a path back into the next release.
+
+**Validation → Delivery → Feedback**
+
+</details>
+
+<br>
+
+## Out in the world.
+
+A few products I have helped shape and build. Different constraints, with the same responsibility to make the whole experience work.
+
+<a href="https://apps.apple.com/rs/app/winnerarc/id6746265207"><img src="./assets/underpond/work-mobile.svg" alt="01. WinnerArc: a mobile product for planning, focus sessions, and 21-day programs." width="100%"></a>
+
+### WinnerArc
+
+A productivity app that connects daily plans, focus timers, 21-day programs, progress, and reminders. Built for iOS and Android, with subscriptions integrated into the experience.
+
+**React Native · Expo · Firebase · Redux · React Query**
+
+[View on the App Store](https://apps.apple.com/rs/app/winnerarc/id6746265207) · [Get it on Google Play](https://play.google.com/store/apps/details?id=com.winnerarc.application)
+
+<br>
+
+<img src="./assets/underpond/work-systems.svg" alt="02. Connected platforms: property discovery, business advisory, and AI-powered operations." width="100%">
+
+### Where the interface meets the operation.
+
+<details>
+<summary><strong>Property discovery, connected.</strong> Explore the platform.</summary>
+<br>
+
+A bilingual real estate platform for Dubai, bringing property search, maps, localization, lead forms, and CMS-managed content into one experience. My work spans the frontend, content platform, integrations, SEO, and monitoring.
+
+**Next.js · TypeScript · Strapi · Maps · Localization**
+
+</details>
+
+<details>
+<summary><strong>Clear services. A useful next step.</strong> Explore the advisory work.</summary>
+<br>
+
+A bilingual UAE business advisory platform built around service discovery, understandable content, and lead capture. The work connects the public website with the content operations that keep it useful.
+
+**Next.js · TypeScript · Strapi · Motion · SEO**
+
+</details>
+
+<details>
+<summary><strong>From a conversation to a completed request.</strong> Explore the AI system.</summary>
+<br>
+
+An AI service assistant that answers questions, calculates prices, and books pickup and delivery. Requests connect to route planning, fleet scheduling, and an operations dashboard.
+
+**OpenAI · TypeScript · Maps · Automation**
+
+</details>
+
+<br>
+
+<a href="#your-turn"><img src="./assets/underpond/work-play.svg" alt="03. Serious about play: open-source multiplayer and party games." width="100%"></a>
+
+### Build something people want another round of.
+
+**Mafia** brings hidden roles, private rooms, night actions, voting, narration, and chat into a real-time multiplayer game. Built with TypeScript, React, and Supabase.
+
+[Open the Mafia repository](https://github.com/RexDotDev/mafia)
+
+**Baller Imposter** turns one phone into a basketball party game, with NBA and EuroLeague modes, custom roles, and player or team rounds. Built with TypeScript, React, and Vite.
+
+[Play Baller Imposter](https://baller-imposter-game.vercel.app) · [Explore the source](https://github.com/RexDotDev/baller-imposter-game)
+
+<br>
+
+<details>
+<summary><strong>Under the hood.</strong> Open the toolbox.</summary>
+<br>
+
+<img src="./assets/underpond/toolbox.svg" alt="Interfaces: TypeScript, React, Next.js. Mobile: React Native, Expo. Systems: Node.js, Python, PostgreSQL. Delivery: Supabase, Strapi, Cloudflare. Intelligence: OpenAI, Twilio, integrations." width="100%">
+
+Tools follow the product. My work also includes Firebase, Vercel, REST APIs, storage, testing, observability, and deployment workflows.
+
+</details>
+
+<br>
+
+## Your turn.
+
+### Would you ship it?
+
+Three small decisions from the space between product and engineering. Make your call, then open the release note.
+
+<details>
+<summary><strong>01 / Launch is tomorrow. Checkout fails for some users.</strong></summary>
+<br>
+
+**A.** Launch. Most users are fine.<br>
+**B.** Fix and verify the payment path.<br>
+**C.** Put a warning on the homepage.
+
+<details>
+<summary>Open the release note.</summary>
+<br>
+
+**My call: B.** A core journey is a release gate. Fix the failure, verify the path, then make the launch decision.
+
+</details>
+</details>
+
+<details>
+<summary><strong>02 / A promising new feature doubles the first release’s scope.</strong></summary>
+<br>
+
+**A.** Test the need before expanding scope.<br>
+**B.** Add it. More features mean more value.<br>
+**C.** Cut another feature at random.
+
+<details>
+<summary>Open the release note.</summary>
+<br>
+
+**My call: A.** Find evidence for the need and understand the tradeoff. Protect a useful first release while you learn.
+
+</details>
+</details>
+
+<details>
+<summary><strong>03 / The AI demo is excellent. The provider goes offline.</strong></summary>
+<br>
+
+**A.** Keep retrying without a limit.<br>
+**B.** Hide the error and show success.<br>
+**C.** Offer a clear fallback and bounded retries.
+
+<details>
+<summary>Open the release note.</summary>
+<br>
+
+**My call: C.** The fallback is part of the product. People still need a useful next step when a dependency fails.
+
+</details>
+</details>
+
+<br>
+
+<p align="center"><sub>There is a person behind every product decision. Now you know a little more about this one.</sub></p>
+
+<br>
+
+<a href="https://www.underpond.io"><img src="./assets/underpond/outro.svg" alt="Not built to blend in. Relja Diklić / Underpond." width="100%"></a>
 
 <p align="center">
-  <strong>Build useful things. Share what you learn.</strong>
-  <br><br>
-  <a href="https://www.underpond.io">Underpond</a> ·
-  <a href="https://github.com/RexDotDev">GitHub</a> ·
-  <a href="https://github.com/RexDotDev?tab=repositories">All repositories</a>
+  <a href="https://www.underpond.io"><strong>Discover Underpond</strong></a> &nbsp; · &nbsp;
+  <a href="https://github.com/RexDotDev?tab=repositories"><strong>Explore the repositories</strong></a> &nbsp; · &nbsp;
+  <a href="#choose-your-way-in"><strong>Back to the surface</strong></a>
 </p>
