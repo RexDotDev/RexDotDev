@@ -15,7 +15,7 @@
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://apps.apple.com/rs/app/winnerarc/id6746265207"><img src="./assets/underpond-v2/winnerarc.svg" alt="WinnerArc — original App Store screenshots. A mobile product for planning, focus and daily habits." width="100%"></a>
+<a href="https://apps.apple.com/rs/app/winnerarc/id6746265207"><img src="./assets/underpond-v2/winnerarc-focus.svg" alt="WinnerArc — a fixed app screen with an animated focus-to-habit cycle. Plan, focus, repeat." width="100%"></a>
 <p><a href="https://apps.apple.com/rs/app/winnerarc/id6746265207">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.winnerarc.application">Google Play</a></p>
 </td>
 <td width="50%" valign="top">
