@@ -52,6 +52,6 @@
 
 <br>
 <a id="the-build-trace"></a>
-<a href="https://github.com/RexDotDev?tab=overview"><img src="./assets/underpond-v2/terrain.svg" alt="A terrain shaped by real GitHub contribution counts: 7,808 contributions. Snapshot: September 6, 2026." width="100%"></a>
+<a href="https://github.com/RexDotDev?tab=overview"><img src="./assets/underpond-v2/terrain.svg" alt="A terrain shaped by real GitHub contribution counts, refreshed daily. The latest total and refresh date are shown in the graphic." width="100%"></a>
 
 <a href="https://www.underpond.io"><img src="./assets/underpond-v2/footer.svg" alt="Product thinking. Engineering instinct. Discover Underpond." width="100%"></a>

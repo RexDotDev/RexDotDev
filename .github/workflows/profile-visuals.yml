@@ -1,0 +1,44 @@
+name: Refresh profile visuals
+
+on:
+  schedule:
+    # Same daily schedule as the original workflow: 03:17 UTC.
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-visuals
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          ref: main
+      - name: Generate current Underpond terrain
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROFILE_USER: ${{ github.repository_owner }}
+        run: python3 scripts/refresh-terrain.py
+      - name: Publish changed terrain
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- assets/underpond-v2/terrain.svg
+          if git diff --cached --quiet; then
+            echo 'Terrain is already current.'
+          else
+            git commit -m 'chore: refresh contribution terrain'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
