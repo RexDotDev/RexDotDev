@@ -42,8 +42,8 @@
 </tr>
 <tr>
 <td width="50%" valign="top">
-<a href="https://postava-beta.vercel.app"><img src="./assets/underpond-v2/squads.svg" alt="Squads. Name the starting XI. A lineup-guessing game for football and basketball." width="100%"></a>
-<p><a href="https://postava-beta.vercel.app">Name a lineup</a> · <a href="https://github.com/RexDotDev/postava">Source</a></p>
+<a href="https://www.guessthesquad.com"><img src="./assets/underpond-v2/squads.svg" alt="Squads. Name the starting XI. A lineup-guessing game for football and basketball." width="100%"></a>
+<p><a href="https://www.guessthesquad.com">Name a lineup</a> · <a href="https://github.com/RexDotDev/postava">Source</a></p>
 </td>
 <td width="50%" valign="top">
 <a href="https://barjak.vercel.app"><img src="./assets/underpond-v2/flagressive.svg" alt="Flagressive. Beat the clock. A speedrun quiz of the flags and capitals of all 195 countries." width="100%"></a>
